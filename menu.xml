@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE menu SYSTEM "menu.dtd">
+<menu>
+
+    <item>
+        <category>Specialty Coffee</category>
+        <name>Espresso</name>
+        <description>Strong and rich coffee made by forcing hot water through finely-ground coffee beans.</description>
+        <price>4.00</price>
+        <image>images/espresso.jpg</image>
+    </item>
+    <item>
+        <category>Specialty Coffee</category>
+        <name>Cappuccino</name>
+        <description>Coffee made with espresso, hot milk, and steamed milk foam.</description>
+        <price>4.50</price>
+        <image>images/cappuccino.jpg</image>
+    </item>
+    <item>
+        <category>Specialty Coffee</category>
+        <name>Flat White</name>
+        <description>A shot of espresso topped with steamed milk and thin foam.</description>
+        <price>4.50</price>
+        <image>images/flat white.jpg</image>
+    </item>
+    <item>
+        <category>Specialty Coffee</category>
+        <name>Latte</name>
+        <description>A popular coffee drink made with espresso and steamed milk.</description>
+        <price>5.00</price>
+        <image>images/latte.jpg</image>
+    </item>
+    <item>
+        <category>Specialty Coffee</category>
+        <name>Mocha</name>
+        <description>A chocolate-flavored coffee drink made with espresso and steamed milk.</description>
+        <price>5.50</price>
+        <image>images/mocha.jpg</image>
+    </item>
+
+    <item>
+        <category>Pastries and Bites</category>
+        <name>Butter Croissant</name>
+        <description>A flaky, buttery pastry perfect for a morning or afternoon treat.</description>
+        <price>3.50</price>
+        <image>images/croissant.jpg</image>
+    </item>
+    <item>
+        <category>Pastries and Bites</category>
+        <name>Blueberry Muffin</name>
+        <description>A moist and delicious muffin packed with fresh blueberries.</description>
+        <price>4.00</price>
+        <image>images/muffin.jpg</image>
+    </item>
+    <item>
+        <category>Pastries and Bites</category>
+        <name>Breakfast Sandwich</name>
+        <description>A warm sandwich with eggs, cheese, and your choice of bacon or ham.</description>
+        <price>6.50</price>
+        <image>images/sandwich.jpg</image>
+    </item>
+    <item>
+        <category>Pastries and Bites</category>
+        <name>Avocado Toast</name>
+        <description>Toasted bread topped with smashed avocado and fresh tomato slices.</description>
+        <price>7.00</price>
+        <image>images/avocado.jpg</image>
+    </item>
+
+    <item>
+        <category>Salads and Light Meals</category>
+        <name>Fresh Salad</name>
+        <description>A refreshing mix of greens, cherry tomatoes, cucumbers, and a light vinaigrette.</description>
+        <price>8.00</price>
+        <image>images/salad.jpg</image>
+    </item>
+    <item>
+        <category>Salads and Light Meals</category>
+        <name>Quiche of the Day</name>
+        <description>A slice of savory quiche with seasonal ingredients.</description>
+        <price>7.50</price>
+        <image>images/quiche.jpg</image>
+    </item>
+    <item>
+        <category>Salads and Light Meals</category>
+        <name>Soup of the Day</name>
+        <description>A warm and hearty soup made fresh daily. Ask for today’s special.</description>
+        <price>6.50</price>
+        <image>images/soup.jpg</image>
+    </item>
+    <item>
+        <category>Salads and Light Meals</category>
+        <name>Eggs Benedict</name>
+        <description>Poached eggs served on a toasted English muffin with ham and hollandaise sauce.</description>
+        <price>9.50</price>
+        <image>images/benedict.jpg</image>
+    </item>
+</menu>

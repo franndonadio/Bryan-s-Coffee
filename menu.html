@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Bryan's Coffee</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="logo.webp" alt="Bryan Cafe Logo" class="logo">
+        <nav>
+            <ul class="navbar">
+                <li><a href="index.html">About</a></li>
+                <li><a href="Menu.html">Menu</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Menu</h1>
+        <p>Enjoy our rich coffee and a variety of fresh, delicious bites!</p>
+
+        <section id="menuContainer">
+           
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Bryan's Coffee. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    fetch('menu.xml')
+        .then(response => response.text())
+        .then(data => {
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(data, 'application/xml');
+            const items = xmlDoc.getElementsByTagName('item');
+            const menuContainer = document.getElementById('menuContainer');
+
+            let currentCategory = '';
+            let currentUl;
+
+            for (let i = 0; i < items.length; i++) {
+                const category = items[i].getElementsByTagName('category')[0].textContent;
+                const name = items[i].getElementsByTagName('name')[0].textContent;
+                const description = items[i].getElementsByTagName('description')[0].textContent;
+                const price = items[i].getElementsByTagName('price')[0].textContent;
+                const image = items[i].getElementsByTagName('image')[0].textContent;
+
+                if (category !== currentCategory) {
+                    menuContainer.innerHTML += `<h2>${category}</h2>`;
+                    currentUl = document.createElement('ul');
+                    currentUl.classList.add('menu-list');
+                    menuContainer.appendChild(currentUl);
+                    currentCategory = category;
+                }
+
+                const menuItemHTML = `
+                    <li>
+                        <div class="menu-item-container">
+                            <img src="${image}" alt="${name}">
+                        </div>
+                        <p>${name} - $${parseFloat(price).toFixed(2)}</p>
+                        <p>${description}</p>
+                    </li>
+                `;
+                currentUl.innerHTML += menuItemHTML;
+            }
+        })
+        .catch(error => console.error('Error loading XML:', error));
+});
+
+    </script>
+</body>
+</html>
