@@ -22,13 +22,13 @@
         <h1>Contact Us</h1>
         <p>Get in touch with us for any inquiries or feedback!</p>
 
-        <!-- Branch Locations -->
+        
         <section>
             <h2>Our Locations</h2>
             <div id="branches"></div>
         </section>
 
-        <!-- Contact Form -->
+        
         <section>
             <h2>Send Us Your Inquiry</h2>
             <form id="inquiryForm" onsubmit="return handleFormSubmit()">
@@ -56,7 +56,7 @@
         <a href="privacy.html">Privacy Policy</a>
     </footer>
 
-    <!-- JavaScript to handle form submission -->
+    
     <script>
         function handleFormSubmit() {
             const firstName = document.getElementById('firstName').value.trim();
@@ -71,51 +71,71 @@
             }
 
             alert(`Inquiry submitted successfully. Thank you, ${firstName} ${lastName}!`);
-            return false; // Prevent actual form submission for this example
+            return false; 
         }
+        
+        function initializeBranchMaps(branchData) {
+        branchData.forEach(branch => {
+            const mapId = `map-${branch.name.toLowerCase().replace(/ /g, '-')}`;
+            const mapElement = document.getElementById(mapId);
 
-        // Dynamic branch information with maps
-        fetch('branches.xml')
-            .then(response => response.text())
-            .then(data => {
-                const parser = new DOMParser();
-                const xml = parser.parseFromString(data, 'application/xml');
-                const branches = xml.getElementsByTagName('branch');
-                let output = '';
+            if (mapElement) {
+                const map = new google.maps.Map(mapElement, {
+                    center: { lat: branch.latitude, lng: branch.longitude },
+                    zoom: 14,
+                });
 
-                for (let branch of branches) {
-                    const name = branch.getElementsByTagName('name')[0].textContent;
-                    const address = branch.getElementsByTagName('address')[0].textContent;
-                    const phone = branch.getElementsByTagName('phone')[0].textContent;
-                    const email = branch.getElementsByTagName('email')[0].textContent;
-                    const latitude = parseFloat(branch.getElementsByTagName('latitude')[0].textContent);
-                    const longitude = parseFloat(branch.getElementsByTagName('longitude')[0].textContent);
+                new google.maps.Marker({
+                    position: { lat: branch.latitude, lng: branch.longitude },
+                    map: map,
+                });
+            }
+        });
+    }
 
-                    const mapId = `map-${name.toLowerCase().replace(/ /g, '-')}`;
+    fetch('branches.xml')
+        .then(response => response.text())
+        .then(data => {
+            const parser = new DOMParser();
+            const xml = parser.parseFromString(data, 'application/xml');
+            const branches = xml.getElementsByTagName('branch');
+            let output = '';
+            const branchData = [];
 
-                    output += `
-                        <div>
-                            <p><strong>${name}</strong><br>
-                            ${address}<br>
-                            Phone: ${phone}<br>
-                            Email: <a href="mailto:${email}">${email}</a></p>
-                            <div id="${mapId}" style="width:100%;height:300px;margin-bottom:20px;"></div>
-                        </div>
-                    `;
+            for (let branch of branches) {
+                const name = branch.getElementsByTagName('name')[0].textContent;
+                const address = branch.getElementsByTagName('address')[0].textContent;
+                const phone = branch.getElementsByTagName('phone')[0].textContent;
+                const email = branch.getElementsByTagName('email')[0].textContent;
+                const hours = branch.getElementsByTagName('hours')[0].textContent;
+                const latitude = parseFloat(branch.getElementsByTagName('latitude')[0].textContent);
+                const longitude = parseFloat(branch.getElementsByTagName('longitude')[0].textContent);
+                const mapLink = branch.getElementsByTagName('mapLink')[0].textContent;
 
-                    // Initialize map after DOM updates
-                    setTimeout(() => {
-                        const map = new google.maps.Map(document.getElementById(mapId), {
-                            center: { lat: latitude, lng: longitude },
-                            zoom: 14
-                        });
-                        new google.maps.Marker({ position: { lat: latitude, lng: longitude }, map });
-                    }, 0);
-                }
+                branchData.push({ name, latitude, longitude });
 
-                document.getElementById('branches').innerHTML = output;
-            })
-            .catch(error => console.error('Error loading branches:', error));
+                const mapId = `map-${name.toLowerCase().replace(/ /g, '-')}`;
+
+                output += `
+                    <div style="margin-bottom: 30px;">
+                        <p><strong>${name}</strong><br>
+                        ${address}<br>
+                        Phone: ${phone}<br>
+                        Email: <a href="mailto:${email}">${email}</a><br>
+                        Opening Hours: ${hours}<br>
+                        <a href="${mapLink}" target="_blank">View on Google Maps</a></p>
+                        <div id="${mapId}" style="width:100%; height:300px; margin-top:15px;"></div>
+                    </div>
+                `;
+            }
+
+            document.getElementById('branches').innerHTML = output;
+
+            
+            initializeBranchMaps(branchData);
+        })
+        .catch(error => console.error('Error loading branches:', error));
+
     </script>
 
     <!-- Google Maps API -->
