@@ -22,13 +22,13 @@
         <h1>Contact Us</h1>
         <p>Get in touch with us for any inquiries or feedback!</p>
 
-      
+        
         <section>
             <h2>Our Locations</h2>
             <div id="branches"></div>
         </section>
 
-       
+        
         <section>
             <h2>Send Us Your Inquiry</h2>
             <form id="inquiryForm" onsubmit="return handleFormSubmit()">
@@ -56,7 +56,7 @@
         <a href="privacy.html">Privacy Policy</a>
     </footer>
 
-   
+    
     <script>
         function handleFormSubmit() {
             const firstName = document.getElementById('firstName').value.trim();
@@ -73,10 +73,8 @@
             alert(`Inquiry submitted successfully. Thank you, ${firstName} ${lastName}!`);
             return false; 
         }
-    </script>
 
-    
-    <script>
+        
         fetch('branches.xml')
             .then(response => response.text())
             .then(data => {
@@ -84,22 +82,43 @@
                 const xml = parser.parseFromString(data, 'application/xml');
                 const branches = xml.getElementsByTagName('branch');
                 let output = '';
+
                 for (let branch of branches) {
                     const name = branch.getElementsByTagName('name')[0].textContent;
                     const address = branch.getElementsByTagName('address')[0].textContent;
                     const phone = branch.getElementsByTagName('phone')[0].textContent;
                     const email = branch.getElementsByTagName('email')[0].textContent;
+                    const latitude = parseFloat(branch.getElementsByTagName('latitude')[0].textContent);
+                    const longitude = parseFloat(branch.getElementsByTagName('longitude')[0].textContent);
+
+                    const mapId = `map-${name.toLowerCase().replace(/ /g, '-')}`;
+
                     output += `
-                        <p>
-                            <strong>${name}</strong><br>
+                        <div>
+                            <p><strong>${name}</strong><br>
                             ${address}<br>
                             Phone: ${phone}<br>
-                            Email: <a href="mailto:${email}">${email}</a>
-                        </p>`;
+                            Email: <a href="mailto:${email}">${email}</a></p>
+                            <div id="${mapId}" style="width:100%;height:300px;margin-bottom:20px;"></div>
+                        </div>
+                    `;
+
+                    
+                    setTimeout(() => {
+                        const map = new google.maps.Map(document.getElementById(mapId), {
+                            center: { lat: latitude, lng: longitude },
+                            zoom: 14
+                        });
+                        new google.maps.Marker({ position: { lat: latitude, lng: longitude }, map });
+                    }, 0);
                 }
+
                 document.getElementById('branches').innerHTML = output;
             })
             .catch(error => console.error('Error loading branches:', error));
     </script>
+
+    
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6U9YtOaPBOWBJrDSsKR6o4x-WEk1Su3Y"></script>
 </body>
 </html>
