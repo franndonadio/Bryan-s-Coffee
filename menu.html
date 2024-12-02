@@ -29,15 +29,15 @@
 
     <script>
     
-        document.addEventListener('DOMContentLoaded', () => {
-        fetch('menu.xml')
+    document.addEventListener('DOMContentLoaded', () => {
+    fetch('menu.xml')
         .then(response => response.text())
         .then(data => {
             const parser = new DOMParser();
             const xmlDoc = parser.parseFromString(data, 'application/xml');
             const menuContainer = document.getElementById('menuContainer');
 
-            // Process meals
+            
             const meals = xmlDoc.getElementsByTagName('meal');
             if (meals.length > 0) {
                 menuContainer.innerHTML += '<h2>Meals</h2>';
@@ -49,6 +49,8 @@
                     const description = meal.getElementsByTagName('description')[0].textContent;
                     const image = meal.getElementsByTagName('image')[0].textContent;
 
+                    console.log('Image Path:', image); 
+
                     mealsList.innerHTML += `
                         <li>
                             <div class="menu-item-container">
@@ -58,9 +60,8 @@
                             <p>${description}</p>
                         </li>
                     `;
+                    }
                 }
-                menuContainer.appendChild(mealsList);
-            }
 
             
             const beverages = xmlDoc.getElementsByTagName('category');
