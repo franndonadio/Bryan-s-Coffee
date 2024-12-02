@@ -14,6 +14,7 @@
                 <li><a href="index.html">About</a></li>
                 <li><a href="menu.html">Menu</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
             </ul>
         </nav>
     </header>
@@ -21,114 +22,84 @@
         <h1>Contact Us</h1>
         <p>Get in touch with us for any inquiries or feedback!</p>
 
+      
         <section>
             <h2>Our Locations</h2>
-            <p><strong>Bryan's Coffee - Sydney</strong><br>
-               123 Pyrmont Street, Pyrmont, NSW 2009<br>
-               Phone: +61 2 5555 5555<br>
-               Email: sydney@bryanscoffee.com.au
-            </p>
-            <div id="map-sydney" style="width:100%;height:300px;"></div><br>
-
-            <p><strong>Bryan's Coffee - Melbourne</strong><br>
-               456 Collins Street, Melbourne, VIC 3000<br>
-               Phone: +61 3 5555 5555<br>
-               Email: melbourne@bryanscoffee.com.au
-            </p>
-            <div id="map-melbourne" style="width:100%;height:300px;"></div><br>
-
-            <p><strong>Bryan's Coffee - Brisbane</strong><br>
-               789 Queen Street, Brisbane, QLD 4000<br>
-               Phone: +61 7 5555 5555<br>
-               Email: brisbane@bryanscoffee.com.au
-            </p>
-            <div id="map-brisbane" style="width:100%;height:300px;"></div><br>
-
-            <p><strong>Bryan's Coffee - Airlie Beach</strong><br>
-               101 Main Street, Airlie Beach, QLD 4802<br>
-               Phone: +61 7 5555 5555<br>
-               Email: airlie@bryanscoffee.com.au
-            </p>
-            <div id="map-airlie" style="width:100%;height:300px;"></div><br>
+            <div id="branches"></div>
         </section>
 
+       
         <section>
             <h2>Send Us Your Inquiry</h2>
             <form id="inquiryForm" onsubmit="return handleFormSubmit()">
-                <label for="name">Your Name:</label><br>
-                <input type="text" id="name" name="name" required><br><br>
-            
+                <label for="firstName">First Name:</label><br>
+                <input type="text" id="firstName" name="firstName" required><br><br>
+                
+                <label for="lastName">Last Name:</label><br>
+                <input type="text" id="lastName" name="lastName" required><br><br>
+                
                 <label for="email">Your Email:</label><br>
                 <input type="email" id="email" name="email" required><br><br>
-            
-                <label for="message">Your Message:</label><br>
+                
+                <label for="subject">Message Subject:</label><br>
+                <input type="text" id="subject" name="subject" required><br><br>
+                
+                <label for="message">Message Body:</label><br>
                 <textarea id="message" name="message" rows="5" required></textarea><br><br>
-            
+                
                 <button type="submit">Send Inquiry</button>
-            </form>           
-        </section>        
+            </form>
+        </section>
     </main>
     <footer>
         <p>&copy; 2024 Bryan's Coffee. All rights reserved.</p>
+        <a href="privacy.html">Privacy Policy</a>
     </footer>
 
+   
     <script>
         function handleFormSubmit() {
-            
-            const name = document.getElementById('name').value.trim();
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
             const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value.trim();
             const message = document.getElementById('message').value.trim();
 
-            
-            if (name === '' || email === '' || message === '') {
+            if (!firstName || !lastName || !email || !subject || !message) {
                 alert('Error: All fields are required. Please fill out the form completely.');
-                return false; 
+                return false;
             }
 
-            
-            alert('Inquiry submitted successfully. Thank you, ' + name + '!');
+            alert(`Inquiry submitted successfully. Thank you, ${firstName} ${lastName}!`);
             return false; 
         }
     </script>
 
+    
     <script>
-        function initMap() {
-            // Sydney Location
-            var sydney = {lat: -33.8688, lng: 151.2093};
-            var mapSydney = new google.maps.Map(document.getElementById('map-sydney'), {
-                zoom: 14,
-                center: sydney
-            });
-            new google.maps.Marker({position: sydney, map: mapSydney});
-
-            // Melbourne Location
-            var melbourne = {lat: -37.8136, lng: 144.9631};
-            var mapMelbourne = new google.maps.Map(document.getElementById('map-melbourne'), {
-                zoom: 14,
-                center: melbourne
-            });
-            new google.maps.Marker({position: melbourne, map: mapMelbourne});
-
-            // Brisbane Location
-            var brisbane = {lat: -27.4698, lng: 153.0251};
-            var mapBrisbane = new google.maps.Map(document.getElementById('map-brisbane'), {
-                zoom: 14,
-                center: brisbane
-            });
-            new google.maps.Marker({position: brisbane, map: mapBrisbane});
-
-            // Airlie Beach Location
-            var airlie = {lat: -20.2679, lng: 148.7166};
-            var mapAirlie = new google.maps.Map(document.getElementById('map-airlie'), {
-                zoom: 14,
-                center: airlie
-            });
-            new google.maps.Marker({position: airlie, map: mapAirlie});
-        }
+        fetch('branches.xml')
+            .then(response => response.text())
+            .then(data => {
+                const parser = new DOMParser();
+                const xml = parser.parseFromString(data, 'application/xml');
+                const branches = xml.getElementsByTagName('branch');
+                let output = '';
+                for (let branch of branches) {
+                    const name = branch.getElementsByTagName('name')[0].textContent;
+                    const address = branch.getElementsByTagName('address')[0].textContent;
+                    const phone = branch.getElementsByTagName('phone')[0].textContent;
+                    const email = branch.getElementsByTagName('email')[0].textContent;
+                    output += `
+                        <p>
+                            <strong>${name}</strong><br>
+                            ${address}<br>
+                            Phone: ${phone}<br>
+                            Email: <a href="mailto:${email}">${email}</a>
+                        </p>`;
+                }
+                document.getElementById('branches').innerHTML = output;
+            })
+            .catch(error => console.error('Error loading branches:', error));
     </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6U9YtOaPBOWBJrDSsKR6o4x-WEk1Su3Y&callback=initMap">
-</script>
-
 </body>
 </html>

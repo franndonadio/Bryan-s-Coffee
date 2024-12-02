@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<branches>
+  <branch>
+    <name>Sydney</name>
+    <address>123 Pyrmont Street, Pyrmont, NSW 2009</address>
+    <phone>+61 2 5555 5555</phone>
+    <email>sydney@bryanscoffee.com.au</email>
+  </branch>
+  <branch>
+    <name>Melbourne</name>
+    <address>456 Collins Street, Melbourne, VIC 3000</address>
+    <phone>+61 3 5555 5555</phone>
+    <email>melbourne@bryanscoffee.com.au</email>
+  </branch>
+  <branch>
+    <name>Brisbane</name>
+    <address>789 Queen Street, Brisbane, QLD 4000</address>
+    <phone>+61 7 5555 5555</phone>
+    <email>brisbane@bryanscoffee.com.au</email>
+  </branch>
+  <branch>
+    <name>Airlie Beach</name>
+    <address>101 Main Street, Airlie Beach, QLD 4802</address>
+    <phone>+61 7 5555 5555</phone>
+    <email>airlie@bryanscoffee.com.au</email>
+  </branch>
+</branches>

@@ -153,6 +153,55 @@ form button:hover {
     background-color: #6f4e37;
 }
 
+.banner {
+    background-color: #d3b8ae;
+    color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.5em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#about, #history {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 800px;
+    text-align: left;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#about img, #history img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+#branches p {
+    margin: 10px 0;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    line-height: 1.5;
+}
+
+main h1, main h2 {
+    color: #4b3832;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+main p {
+    line-height: 1.6;
+    text-align: left;
+    margin: 10px 0;
+}
+
 @media (max-width: 768px) {
     body {
         padding: 5px;
@@ -212,6 +261,10 @@ form button:hover {
         font-size: 12px;
         text-align: center;
     }
+
+    #branches p {
+        padding: 10px;
+    }   
 }
 
 @media (max-width: 480px) {
@@ -225,5 +278,9 @@ form button:hover {
 
     .map-container {
         height: 200px; 
+    }
+    
+    #branches p {
+        font-size: 14px;
     }
 }
