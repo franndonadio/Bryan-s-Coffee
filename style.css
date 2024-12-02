@@ -159,10 +159,22 @@ form button:hover {
     padding: 30px;
     border-radius: 10px;
     margin-bottom: 20px;
-    text-align: center;
+    text-align: center; 
     font-size: 1.5em;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+.banner h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+.banner p {
+    margin: 10px 0 0;
+    font-size: 1em;
+    text-align: center; 
+}
+
 
 #about, #history {
     margin: 30px auto;
@@ -184,7 +196,7 @@ form button:hover {
 #about p, #history p {
     line-height: 1.8;
     margin: 10px 20px;
-    text-align: justify; 
+    text-align: center; 
 }
 
 #about img, #history img {
