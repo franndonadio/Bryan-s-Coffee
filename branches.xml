@@ -1,36 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE branches SYSTEM "branches.dtd">
 <branches>
-  <branch>
-    <name>Sydney</name>
-    <address>123 Pyrmont Street, Pyrmont, NSW 2009</address>
-    <phone>+61 2 5555 5555</phone>
-    <email>sydney@bryanscoffee.com.au</email>
-    <latitude>-33.8688</latitude>
-    <longitude>151.2093</longitude>
-  </branch>
-  <branch>
-    <name>Melbourne</name>
-    <address>456 Collins Street, Melbourne, VIC 3000</address>
-    <phone>+61 3 5555 5555</phone>
-    <email>melbourne@bryanscoffee.com.au</email>
-    <latitude>-37.8136</latitude>
-    <longitude>144.9631</longitude>
-  </branch>
-  <branch>
-    <name>Brisbane</name>
-    <address>789 Queen Street, Brisbane, QLD 4000</address>
-    <phone>+61 7 5555 5555</phone>
-    <email>brisbane@bryanscoffee.com.au</email>
-    <latitude>-27.4698</latitude>
-    <longitude>153.0251</longitude>
-  </branch>
-  <branch>
-    <name>Airlie Beach</name>
-    <address>101 Main Street, Airlie Beach, QLD 4802</address>
-    <phone>+61 7 5555 5555</phone>
-    <email>airlie@bryanscoffee.com.au</email>
-    <latitude>-20.2679</latitude>
-    <longitude>148.7166</longitude>
-  </branch>
+    <branch>
+        <name>Surry Hills</name>
+        <address>76 Devonshire St, Surry Hills NSW</address>
+        <phone>02 9211 1234</phone>
+        <email>surryhills@bryanscoffee.com.au</email>
+        <latitude>-33.886737</latitude>
+        <longitude>151.209238</longitude>
+        <hours>Mon - Fri: 6:00 to 14:30, Sat-Sun: 7:00 to 15:00</hours>
+        <mapLink>https://www.google.com/maps?q=-33.886737,151.209238</mapLink>
+    </branch>
+    <branch>
+        <name>Haymarket</name>
+        <address>451 Pitt St, Haymarket Sydney, NSW</address>
+        <phone>02 9262 5678</phone>
+        <email>haymarket@bryanscoffee.com.au</email>
+        <latitude>-33.880611</latitude>
+        <longitude>151.207093</longitude>
+        <hours>Mon - Fri: 6:00 to 16:00, Sat-Sun: 7:00 to 15:00</hours>
+        <mapLink>https://www.google.com/maps?q=-33.880611,151.207093</mapLink>
+    </branch>
+    <branch>
+        <name>Circular Quay</name>
+        <address>31 Alfred Street, Circular Quay, NSW</address>
+        <phone>02 8971 9101</phone>
+        <email>circularquay@bryanscoffee.com.au</email>
+        <latitude>-33.861034</latitude>
+        <longitude>151.211881</longitude>
+        <hours>Mon - Fri: 6:00 to 16:00, Sat-Sun: 7:00 to 15:00</hours>
+        <mapLink>https://www.google.com/maps?q=-33.861034,151.211881</mapLink>
+    </branch>
 </branches>
