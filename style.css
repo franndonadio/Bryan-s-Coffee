@@ -164,7 +164,7 @@ form button:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-#about, #history {
+.about, .history {
     margin: 20px auto;
     padding: 20px;
     max-width: 800px;
@@ -174,13 +174,13 @@ form button:hover {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-#about img, #history img {
+.about img, .history img {
     max-width: 100%;
     border-radius: 10px;
     margin-top: 10px;
 }
 
-#branches p {
+.branches p {
     margin: 10px 0;
     padding: 15px;
     border: 1px solid #ccc;
