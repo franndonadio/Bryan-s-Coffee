@@ -1,98 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE menu SYSTEM "menu.dtd">
 <menu>
-
-    <item>
-        <category>Specialty Coffee</category>
-        <name>Espresso</name>
-        <description>Strong and rich coffee made by forcing hot water through finely-ground coffee beans.</description>
-        <price>4.00</price>
-        <image>images/espresso.jpg</image>
-    </item>
-    <item>
-        <category>Specialty Coffee</category>
-        <name>Cappuccino</name>
-        <description>Coffee made with espresso, hot milk, and steamed milk foam.</description>
-        <price>4.50</price>
-        <image>images/cappuccino.jpg</image>
-    </item>
-    <item>
-        <category>Specialty Coffee</category>
-        <name>Flat White</name>
-        <description>A shot of espresso topped with steamed milk and thin foam.</description>
-        <price>4.50</price>
-        <image>images/flat white.jpg</image>
-    </item>
-    <item>
-        <category>Specialty Coffee</category>
-        <name>Latte</name>
-        <description>A popular coffee drink made with espresso and steamed milk.</description>
-        <price>5.00</price>
-        <image>images/latte.jpg</image>
-    </item>
-    <item>
-        <category>Specialty Coffee</category>
-        <name>Mocha</name>
-        <description>A chocolate-flavored coffee drink made with espresso and steamed milk.</description>
-        <price>5.50</price>
-        <image>images/mocha.jpg</image>
-    </item>
-
-    <item>
-        <category>Pastries and Bites</category>
-        <name>Butter Croissant</name>
-        <description>A flaky, buttery pastry perfect for a morning or afternoon treat.</description>
-        <price>3.50</price>
-        <image>images/croissant.jpg</image>
-    </item>
-    <item>
-        <category>Pastries and Bites</category>
-        <name>Blueberry Muffin</name>
-        <description>A moist and delicious muffin packed with fresh blueberries.</description>
-        <price>4.00</price>
-        <image>images/muffin.jpg</image>
-    </item>
-    <item>
-        <category>Pastries and Bites</category>
-        <name>Breakfast Sandwich</name>
-        <description>A warm sandwich with eggs, cheese, and your choice of bacon or ham.</description>
-        <price>6.50</price>
-        <image>images/sandwich.jpg</image>
-    </item>
-    <item>
-        <category>Pastries and Bites</category>
-        <name>Avocado Toast</name>
-        <description>Toasted bread topped with smashed avocado and fresh tomato slices.</description>
-        <price>7.00</price>
-        <image>images/avocado.jpg</image>
-    </item>
-
-    <item>
-        <category>Salads and Light Meals</category>
-        <name>Fresh Salad</name>
-        <description>A refreshing mix of greens, cherry tomatoes, cucumbers, and a light vinaigrette.</description>
-        <price>8.00</price>
-        <image>images/salad.jpg</image>
-    </item>
-    <item>
-        <category>Salads and Light Meals</category>
-        <name>Quiche of the Day</name>
-        <description>A slice of savory quiche with seasonal ingredients.</description>
-        <price>7.50</price>
-        <image>images/quiche.jpg</image>
-    </item>
-    <item>
-        <category>Salads and Light Meals</category>
-        <name>Soup of the Day</name>
-        <description>A warm and hearty soup made fresh daily. Ask for today’s special.</description>
-        <price>6.50</price>
-        <image>images/soup.jpg</image>
-    </item>
-    <item>
-        <category>Salads and Light Meals</category>
-        <name>Eggs Benedict</name>
-        <description>Poached eggs served on a toasted English muffin with ham and hollandaise sauce.</description>
-        <price>9.50</price>
-        <image>images/benedict.jpg</image>
-    </item>
+    <meals>
+        <meal>
+            <name>Beetroot and feta salad</name>
+            <price>15.00</price>
+            <description>Suitable for vegetarians, made with fresh beetroot</description>
+            <image>beetroot_salad.jpg</image>
+        </meal>
+        <meal>
+            <name>Sourdough Rye Sandwich</name>
+            <price>18.00</price>
+            <description>Cheese and salad sandwich made with organic sourdough rye bread</description>
+            <image>sourdough_sandwich.jpg</image>
+        </meal>
+        <meal>
+            <name>Spinach Pie and Salad</name>
+            <price>20.00</price>
+            <description>Tasty pie with salad</description>
+            <image>spinach_pie.jpg</image>
+        </meal>
+        <meal>
+            <name>Feta pancakes with salad</name>
+            <price>19.50</price>
+            <description>Tasty pancake filled with feta and salad</description>
+            <image>feta_pancakes.jpg</image>
+        </meal>
+    </meals>
+    <beverages>
+        <category>
+            <name>Coffee and hot chocolates</name>
+            <size>
+                <name>Small</name>
+                <price>3.50</price>
+                <description>For coffee, please inform the staff of the coffee type</description>
+            </size>
+            <size>
+                <name>Regular</name>
+                <price>4.00</price>
+                <description>For coffee, please inform the staff of the coffee type</description>
+            </size>
+            <size>
+                <name>Large</name>
+                <price>4.50</price>
+                <description>For coffee, please inform the staff of the coffee type</description>
+            </size>
+        </category>
+        <category>
+            <name>Other beverages</name>
+            <beverage>
+                <name>Soda</name>
+                <price>3.00</price>
+            </beverage>
+            <beverage>
+                <name>Fresh juice</name>
+                <price>6.00</price>
+            </beverage>
+            <beverage>
+                <name>Bottled water</name>
+                <price>2.00</price>
+            </beverage>
+        </category>
+    </beverages>
 </menu>
