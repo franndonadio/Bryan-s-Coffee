@@ -22,13 +22,13 @@
         <h1>Contact Us</h1>
         <p>Get in touch with us for any inquiries or feedback!</p>
 
-        
+        <!-- Branch Locations -->
         <section>
             <h2>Our Locations</h2>
             <div id="branches"></div>
         </section>
 
-        
+        <!-- Contact Form -->
         <section>
             <h2>Send Us Your Inquiry</h2>
             <form id="inquiryForm" onsubmit="return handleFormSubmit()">
@@ -56,7 +56,7 @@
         <a href="privacy.html">Privacy Policy</a>
     </footer>
 
-    
+    <!-- JavaScript to handle form submission -->
     <script>
         function handleFormSubmit() {
             const firstName = document.getElementById('firstName').value.trim();
@@ -71,10 +71,10 @@
             }
 
             alert(`Inquiry submitted successfully. Thank you, ${firstName} ${lastName}!`);
-            return false; 
+            return false; // Prevent actual form submission for this example
         }
 
-        
+        // Dynamic branch information with maps
         fetch('branches.xml')
             .then(response => response.text())
             .then(data => {
@@ -103,7 +103,7 @@
                         </div>
                     `;
 
-                    
+                    // Initialize map after DOM updates
                     setTimeout(() => {
                         const map = new google.maps.Map(document.getElementById(mapId), {
                             center: { lat: latitude, lng: longitude },
@@ -118,7 +118,7 @@
             .catch(error => console.error('Error loading branches:', error));
     </script>
 
-    
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6U9YtOaPBOWBJrDSsKR6o4x-WEk1Su3Y"></script>
+    <!-- Google Maps API -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6U9YtOaPBOWBJrDSsKR6o4x-WEk1Su3Y"></script>
 </body>
 </html>
